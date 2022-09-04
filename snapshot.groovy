@@ -6,7 +6,7 @@ pipeline {
                     expression { ACTION == 'CREATE_SNAPSHOT'}
                 }
             steps {
-                    sh 'aws ec2 create-snapshot --volume-id $volume_id --region $region'       
+                    sh 'aws ec2 create-snapshot --volume-id $volume_id --region $create_region'       
             }
         }
         
@@ -15,7 +15,7 @@ pipeline {
                     expression { ACTION == 'DELETE_SNAPSHOT'}
                 }
             steps {
-                    sh 'aws ec2 delete-snapshot --snapshot-id $snapshot_id --region $region'
+                    sh 'aws ec2 delete-snapshot --snapshot-id $snapshot_id --region $delete_region'
 
                 }
         }
